@@ -29,9 +29,12 @@ namespace ZodiacSign
 
         private string getZosidacSign()
         {
-
             
-            return date;
+            string day = date.Substring(0, 2);
+            string month = date.Substring(3, 2);
+
+
+            return month;
 
         }
 
