@@ -25,11 +25,14 @@ namespace ZodiacSign
             InitializeComponent();
         }
 
-        
+        string date;
 
         private string getZosidacSign()
         {
-            return "ryby";
+
+            
+            return date;
+
         }
 
 
@@ -44,6 +47,13 @@ namespace ZodiacSign
         private void txtName_GotFocus(object sender, RoutedEventArgs e)
         {
             txtName.Text = "";
+        }
+
+        private void Calendar_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            date = calendar.SelectedDate.ToString();
+            
         }
     }
 }
