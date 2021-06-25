@@ -29,14 +29,174 @@ namespace ZodiacSign
 
         private string getZosidacSign()
         {
-            
-            string day = date.Substring(0, 2);
+            string[] zodiac_sign = new string[]
+            {
+                "Baran","Byk","Bliżnięta","Rak","Lew","Panna","Waga","Skorpion","Strzelec","Koziorożec","Wodnik","Ryby"
+            };
+
+            string[] zodiac_description = new string[]
+            {
+                "Jestem i działam, idę naprzód. Moim motto jest aktywność, agresja, przywództwo, początek",
+                "Gromadzę i posiadam, doceniam roskoszuję się, Jestem stały, przyziemny, wytrzymały, zmysłowy",
+                "Myślę i mówię, zbieram i przekazuję informacje. Jestem gadatliwy, ciekawski, towarzyski",
+                "Czuję, przeżywam, martwię się, kontempluję. Jestem delikatny, konserwatywny, uczuciowy.",
+                "Patrzcie na mnie i podziwiajcie - jestem w centrum uwagi. Wielkoduszność, autorytet, dramatyzm.",
+                "Porządkuję i segreguję, pomagam i służę. Moje motto to staranność, krytyka, rezerwa, dbałość o zdrowie.",
+                "Dążę do równowagi, sprawiedliwości i bezstronności. Jestem sprawiedliwy, wyrafinowany, dyplomatyczny.",
+                "Zgłębiam, drążę, ujawniam. Moje motto to skupienie, głębia, zaborczość, wnikliwośc, intensywność",
+                "Idę naprzód i przekraczam granice. Moje motto to optymizm, entuzjazm, przygoda, szczerość.",
+                "Dążę do celu. Jestem konserwatywny, zdyscyplinowany, wytrwały, ambitny.",
+                "Wolność i równość, przekraczanie granic. Moje motto to niezależność, humanitaryzm, wynalazczość.",
+                "Ucieczka od rzeczywistości. Moje motto to intuicja, marzenia, sztuka, współczucie, iluzja."
+            };
+
+
+
+
+            string day_string = date.Substring(0, 2);
+            int day = int.Parse(day_string);
             string month = date.Substring(3, 2);
+            string result_zosiac_sign = "";
+            string description = "";
 
+            switch (month)
+            {
+                                    
+                case "01": 
+                    if (day >= 1 && day <= 19)
+                    {
+                        result_zosiac_sign = zodiac_sign[9];
+                        description = zodiac_description[9];
+                    }
+                    if (day >= 20 && day <= 31)
+                    {
+                        result_zosiac_sign = zodiac_sign[10];
+                    }
+                    break;
+                case "02": 
+                    if (day >= 1 && day <= 18)
+                    {
+                        result_zosiac_sign = zodiac_sign[10];
+                    }
+                    if (day >= 19 && day <= 28)
+                    {
+                        result_zosiac_sign = zodiac_sign[11];
+                    }
+                    break;
+                case "03": 
+                    if (day >= 1 && day <= 20)
+                    {
+                        result_zosiac_sign = zodiac_sign[11];
+                    }
+                    if (day >= 21 && day <= 31)
+                    {
+                        result_zosiac_sign = zodiac_sign[0];
+                    }
+                    break;
+                case "04": 
+                    if (day >= 1 && day <= 19)
+                    {
+                        result_zosiac_sign = zodiac_sign[0];
+                    }
+                    if (day >= 20 && day <= 30)
+                    {
+                        result_zosiac_sign = zodiac_sign[1];
+                    }
+                    break;
+                case "05": 
+                    if (day >= 1 && day <= 20)
+                    {
+                        result_zosiac_sign = zodiac_sign[1];
+                    }
+                    if (day >= 21 && day <= 31)
+                    {
+                        result_zosiac_sign = zodiac_sign[2];
+                    }
+                    break;
+                case "06": 
+                    if (day >= 1 && day <= 20)
+                    {
+                        result_zosiac_sign = zodiac_sign[2];
+                    }
+                    if (day >= 21 && day <= 30)
+                    {
+                        result_zosiac_sign = zodiac_sign[3];
+                    }
+                    break;
+                case "07": 
+                    if (day >= 1 && day <= 22)
+                    {
+                        result_zosiac_sign = zodiac_sign[3];
+                    }
+                    if (day >= 23 && day <= 31)
+                    {
+                        result_zosiac_sign = zodiac_sign[4];
+                    }
+                    break;
+                case "08": 
+                    if (day >= 1 && day <= 22)
+                    {
+                        result_zosiac_sign = zodiac_sign[4];
+                    }
+                    if (day >= 23 && day <= 31)
+                    {
+                        result_zosiac_sign = zodiac_sign[5];
+                    }
+                    break;
+                case "09": 
+                    if (day >= 1 && day <= 22)
+                    {
+                        result_zosiac_sign = zodiac_sign[5];
+                    }
+                    if (day >= 23 && day <= 30)
+                    {
+                        result_zosiac_sign = zodiac_sign[6];
+                    }
+                    break;
+                case "10": 
+                    if (day >= 1 && day <= 22)
+                    {
+                        result_zosiac_sign = zodiac_sign[6];
+                    }
+                    if (day >= 23 && day <= 31)
+                    {
+                        result_zosiac_sign = zodiac_sign[7];
+                    }
+                    break;
+                case "11": 
+                    if (day >= 1 && day <= 21)
+                    {
+                        result_zosiac_sign = zodiac_sign[7];
+                    }
+                    if (day >= 22 && day <= 30)
+                    {
+                        result_zosiac_sign = zodiac_sign[8];
+                    }
+                    break;
+                case "12": 
+                    if (day >= 1 && day <= 21)
+                    {
+                        result_zosiac_sign = zodiac_sign[8];
+                    }
+                    if (day >= 22 && day <= 31)
+                    {
+                        result_zosiac_sign = zodiac_sign[9];
+                    }
+                    break;
+                default:
+                    result_zosiac_sign = "No correct value";
+                    break;
+            }
 
-            return month;
+            return result_zosiac_sign;
 
         }
+    
+
+
+           
+
+        
 
 
         private void btnGenerate_Click(object sender, RoutedEventArgs e)
