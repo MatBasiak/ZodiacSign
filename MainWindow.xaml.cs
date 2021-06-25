@@ -27,7 +27,7 @@ namespace ZodiacSign
 
         string date;
 
-        private string getZosidacSign()
+        private Tuple<string, string> getZosidacSign()
         {
             string[] zodiac_sign = new string[]
             {
@@ -58,6 +58,7 @@ namespace ZodiacSign
             string month = date.Substring(3, 2);
             string result_zosiac_sign = "";
             string description = "";
+            
 
             switch (month)
             {
@@ -71,116 +72,139 @@ namespace ZodiacSign
                     if (day >= 20 && day <= 31)
                     {
                         result_zosiac_sign = zodiac_sign[10];
+                        description = zodiac_description[10];
                     }
                     break;
                 case "02": 
                     if (day >= 1 && day <= 18)
                     {
                         result_zosiac_sign = zodiac_sign[10];
+                        description = zodiac_description[10];
                     }
                     if (day >= 19 && day <= 28)
                     {
                         result_zosiac_sign = zodiac_sign[11];
+                        description = zodiac_description[11];
                     }
                     break;
                 case "03": 
                     if (day >= 1 && day <= 20)
                     {
                         result_zosiac_sign = zodiac_sign[11];
+                        description = zodiac_description[11];
                     }
                     if (day >= 21 && day <= 31)
                     {
                         result_zosiac_sign = zodiac_sign[0];
+                        description = zodiac_description[0];
                     }
                     break;
                 case "04": 
                     if (day >= 1 && day <= 19)
                     {
                         result_zosiac_sign = zodiac_sign[0];
+                        description = zodiac_description[0];
                     }
                     if (day >= 20 && day <= 30)
                     {
                         result_zosiac_sign = zodiac_sign[1];
+                        description = zodiac_description[1];
                     }
                     break;
                 case "05": 
                     if (day >= 1 && day <= 20)
                     {
                         result_zosiac_sign = zodiac_sign[1];
+                        description = zodiac_description[1];
                     }
                     if (day >= 21 && day <= 31)
                     {
                         result_zosiac_sign = zodiac_sign[2];
+                        description = zodiac_description[2];
                     }
                     break;
                 case "06": 
                     if (day >= 1 && day <= 20)
                     {
                         result_zosiac_sign = zodiac_sign[2];
+                        description = zodiac_description[2];
                     }
                     if (day >= 21 && day <= 30)
                     {
                         result_zosiac_sign = zodiac_sign[3];
+                        description = zodiac_description[3];
                     }
                     break;
                 case "07": 
                     if (day >= 1 && day <= 22)
                     {
                         result_zosiac_sign = zodiac_sign[3];
+                        description = zodiac_description[3];
                     }
                     if (day >= 23 && day <= 31)
                     {
                         result_zosiac_sign = zodiac_sign[4];
+                        description = zodiac_description[4];
                     }
                     break;
                 case "08": 
                     if (day >= 1 && day <= 22)
                     {
                         result_zosiac_sign = zodiac_sign[4];
+                        description = zodiac_description[4];
                     }
                     if (day >= 23 && day <= 31)
                     {
                         result_zosiac_sign = zodiac_sign[5];
+                        description = zodiac_description[5];
                     }
                     break;
                 case "09": 
                     if (day >= 1 && day <= 22)
                     {
                         result_zosiac_sign = zodiac_sign[5];
+                        description = zodiac_description[5];
                     }
                     if (day >= 23 && day <= 30)
                     {
                         result_zosiac_sign = zodiac_sign[6];
+                        description = zodiac_description[6];
                     }
                     break;
                 case "10": 
                     if (day >= 1 && day <= 22)
                     {
                         result_zosiac_sign = zodiac_sign[6];
+                        description = zodiac_description[6];
                     }
                     if (day >= 23 && day <= 31)
                     {
                         result_zosiac_sign = zodiac_sign[7];
+                        description = zodiac_description[7];
                     }
                     break;
                 case "11": 
                     if (day >= 1 && day <= 21)
                     {
                         result_zosiac_sign = zodiac_sign[7];
+                        description = zodiac_description[8];
                     }
                     if (day >= 22 && day <= 30)
                     {
                         result_zosiac_sign = zodiac_sign[8];
+                        description = zodiac_description[8];
                     }
                     break;
                 case "12": 
                     if (day >= 1 && day <= 21)
                     {
                         result_zosiac_sign = zodiac_sign[8];
+                        description = zodiac_description[8];
                     }
                     if (day >= 22 && day <= 31)
                     {
                         result_zosiac_sign = zodiac_sign[9];
+                        description = zodiac_description[9];
                     }
                     break;
                 default:
@@ -188,7 +212,8 @@ namespace ZodiacSign
                     break;
             }
 
-            return result_zosiac_sign;
+            Tuple<string,string> result =new Tuple<string,string> ( result_zosiac_sign, description );
+            return result;
 
         }
     
@@ -203,8 +228,11 @@ namespace ZodiacSign
         {
 
 
-            string zodiacSign = getZosidacSign();
-            MessageBox.Show($"Witaj {txtName.Text}! Twój znak zodiaku to {zodiacSign}");
+            Tuple<string,string> zodiacSign = getZosidacSign();
+            string sign = zodiacSign.Item1;
+            string description = zodiacSign.Item2;
+           
+           MessageBox.Show($"Witaj {txtName.Text}! Twój znak zodiaku to {sign}.Motto :{description}");
         }
 
         private void txtName_GotFocus(object sender, RoutedEventArgs e)
