@@ -51,6 +51,7 @@ namespace ZodiacSign
             };
 
 
+                    
 
 
             string day_string = date.Substring(0, 2);
@@ -215,24 +216,15 @@ namespace ZodiacSign
             Tuple<string,string> result =new Tuple<string,string> ( result_zosiac_sign, description );
             return result;
 
-        }
-    
-
-
-           
+        }           
 
         
 
 
         private void btnGenerate_Click(object sender, RoutedEventArgs e)
         {
-
-
-            Tuple<string,string> zodiacSign = getZosidacSign();
-            string sign = zodiacSign.Item1;
-            string description = zodiacSign.Item2;
-
             string name = "";
+            
 
             if (txtName.Text == "Tutaj wpisz swoje imię" || txtName.Text == "")
             {
@@ -242,8 +234,33 @@ namespace ZodiacSign
             {
                 name = txtName.Text;
             }
+
+            bool wrong_date = true;
+            while (wrong_date)
+            {
+                if (calendar.SelectedDate == null)
+                {
+                    MessageBox.Show("Wybierz datę urodzenia");
+                    wrong_date = false;
+
+
+                }
+                else
+                {
+                    
+                    Tuple<string, string> zodiacSign = getZosidacSign();
+                    string sign = zodiacSign.Item1;
+                    string description = zodiacSign.Item2;
+                    MessageBox.Show($"Witaj {name}! Twój znak zodiaku to {sign}.\nMotto dla twojego znaku :{description}");
+                    break;
+                }
+
+            }
+
+
+
            
-           MessageBox.Show($"Witaj {name}! Twój znak zodiaku to {sign}.\nMotto dla twojego znaku :{description}");
+           
         }
 
         private void txtName_GotFocus(object sender, RoutedEventArgs e)
@@ -253,7 +270,7 @@ namespace ZodiacSign
 
         private void Calendar_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+           
             date = calendar.SelectedDate.ToString();
            
             
