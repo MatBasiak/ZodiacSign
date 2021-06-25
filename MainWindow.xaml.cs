@@ -231,8 +231,19 @@ namespace ZodiacSign
             Tuple<string,string> zodiacSign = getZosidacSign();
             string sign = zodiacSign.Item1;
             string description = zodiacSign.Item2;
+
+            string name = "";
+
+            if (txtName.Text == "Tutaj wpisz swoje imię" || txtName.Text == "")
+            {
+                name = "Nieznajomy";
+            }
+            else
+            {
+                name = txtName.Text;
+            }
            
-           MessageBox.Show($"Witaj {txtName.Text}! Twój znak zodiaku to {sign}.Motto :{description}");
+           MessageBox.Show($"Witaj {name}! Twój znak zodiaku to {sign}.\nMotto dla twojego znaku :{description}");
         }
 
         private void txtName_GotFocus(object sender, RoutedEventArgs e)
@@ -242,8 +253,9 @@ namespace ZodiacSign
 
         private void Calendar_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
             date = calendar.SelectedDate.ToString();
+           
             
         }
     }
